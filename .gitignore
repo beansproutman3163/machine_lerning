@@ -127,4 +127,5 @@ dmypy.json
 #########################################
 
 # VSCode workspace file
+.vscode
 *.code-workspace
