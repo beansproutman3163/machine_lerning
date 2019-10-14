@@ -19,7 +19,7 @@ os.chdir(os.path.dirname(__file__))
 # Embarked ... 乗船した港 [Cherbourg, Queenstown, Southampton]
 
 # replace male = 0, female = 1
-data_frame = pandas.read_csv("train.csv").replace("male", Def.MALE).replace("female", Def.FEMALE)
+data_frame = pandas.read_csv("data\\train.csv").replace("male", Def.MALE).replace("female", Def.FEMALE)
 
 # Age が空白のものを抽出 (NaN != NaN)
 emptyAge = data_frame.query('Age != Age')
@@ -55,7 +55,7 @@ print(y)
 forest = RandomForestClassifier(n_estimators=100)
 forest = forest.fit(xs, y)
 
-test_df = pandas.read_csv("test.csv").replace("male", Def.MALE).replace("female", Def.FEMALE)
+test_df = pandas.read_csv("data\\test.csv").replace("male", Def.MALE).replace("female", Def.FEMALE)
 
 # 補完
 test_df["Age"].fillna(data_frame.Age.median(), inplace=True)
@@ -74,7 +74,7 @@ zip_data = zip(test_data[:, 0].astype(int), output.astype(int))
 predict_data = list(zip_data)
 
 import csv
-with open("predict_result_data.csv", "w") as f:
+with open("data\\predict_result_data.csv", "w") as f:
     writer = csv.writer(f, lineterminator='\n')
     writer.writerow(["PassengerId", "Survived"])
     for pid, survived in zip(test_data[:,0].astype(int), output.astype(int)):
