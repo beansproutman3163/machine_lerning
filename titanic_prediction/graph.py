@@ -8,7 +8,6 @@ import definition as Def
 
 # main----------------------------------------------------------
 if __name__ == "__main__":
-    pass
 
     # change current dir
     os.chdir(os.path.dirname(__file__))
